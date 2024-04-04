@@ -28,7 +28,7 @@ One explanation is the poverty rates among Native American peoples. The most rec
 Move for Hunger additonally states "There are a total of 28 counties in America that are majority Native American, and 18 of those counties are considered high food insecurity counties."
 
 ### Winnowing
-This study will use the DOA data to find the counties that have the highest percentage of population beyond 20 miles from a supermarket and the percentage of people that meet that condition and have low income. It will also examine the highest percentage of housing units over 20 miles from a supermarket by county. The study will compare a list of the 28 counties in the US that are majority Native American to the DOA data for those counties, showing the breakdown of people that are over 20 miles from a supermarket, and compare it to others from the state and country.
+This study will use the DOA data to find the counties that have the highest percentage of population beyond 20 miles from a supermarket and the percentage of people that meet that condition and have low income. It will also examine the highest percentage of housing units over 20 miles from a supermarket by county. The study will compare a list https://en.wikipedia.org/wiki/List_of_U.S._counties_with_Native_American_majority_populations of the 28 counties in the US that are majority Native American to the DOA data for those counties, showing the breakdown of people that are over 20 miles from a supermarket, and compare it to others from the state and country.
 
 
 ## Core
