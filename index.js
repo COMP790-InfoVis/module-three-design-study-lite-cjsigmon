@@ -107,7 +107,17 @@ for (let path of paths) {
   }
 
   path.onclick = function() {
-    if (selectedStateElement != undefined) selectedStateElement.classList.remove('chosen-one')
+    if (selectedStateElement != undefined) {
+      if (selectedState != undefined && selectedStateElement.id === path.id) {
+        selectedState = undefined;
+        selectedStateElement.classList.remove('chosen-one');
+        displayStateSelected.innerText = "Entire US";
+        reRender();
+        return;
+      }
+      selectedStateElement.classList.remove('chosen-one');
+
+    }
       selectedStateElement = path;
       selectedStateElement.classList.add("chosen-one")
       selectedState = path.getAttribute("data-name");
