@@ -1,0 +1,13 @@
+
+
+path:hover {
+    filter: invert(0.3);
+    cursor: pointer;
+}
+
+.chosen-one, .chosen-one:hover {
+    filter: none;
+    fill: aliceblue !important;
+    stroke:blue;
+    stroke-width: 10px;;
+}

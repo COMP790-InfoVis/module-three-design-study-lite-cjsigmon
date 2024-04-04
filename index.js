@@ -1,7 +1,14 @@
 
 let selectedState;
 let selectedStateElement;
+let displayStateSelected = document.getElementById("displayStateSelected");
 let denom = "Population";
+
+let statesWithNativeMajorityCounties = new Set([
+  "Alaska", "Arizona", "Montana", "Nebraska",
+  "New Mexico", "North Dakota", "South Dakota",
+  "Utah", "Wisconsin"
+])
 
 
 let selectAttr = document.getElementById("attr-select");
@@ -70,14 +77,20 @@ function renderWholeCountry() {
 
 
 paths = document.getElementsByTagName("path");
-
 for (let path of paths) {
-  path.onclick = function() {
-    if (selectedStateElement != undefined) selectedStateElement.setAttribute('style', 'fill: none');
-      selectedStateElement = path;
-      selectedStateElement.setAttribute('style', 'fill: blue');
-      selectedState = path.getAttribute("data-name");
+  if (statesWithNativeMajorityCounties.has(path.getAttribute("data-name"))) {
+    path.setAttribute('style', 'fill: blue');
 
+  } else {
+    path.setAttribute('style', 'fill: darkgray');
+  }
+
+  path.onclick = function() {
+    if (selectedStateElement != undefined) selectedStateElement.classList.remove('chosen-one')
+      selectedStateElement = path;
+      selectedStateElement.classList.add("chosen-one")
+      selectedState = path.getAttribute("data-name");
+      displayStateSelected.innerText = path.getAttribute("data-name");
       reRender();
   }
 }
