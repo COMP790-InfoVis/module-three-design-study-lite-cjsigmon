@@ -1,4 +1,6 @@
-let stateSelected = false;
+
+let selectedState;
+let selectedStateElement;
 
 let selectAttr = document.getElementById("attr-select");
 alaskData = data.filter((c) => {
@@ -31,6 +33,18 @@ console.log(keys)
 console.log(vehicleAccessOver20Miles)
 console.log(alaskData)
 
+paths = document.getElementsByTagName("path");
+
+for (let path of paths) {
+  path.onclick = function() {
+    if (selectedStateElement != undefined) selectedStateElement.setAttribute('style', 'fill: none');
+    else 
+
+    selectedStateElement = path;
+    selectedStateElement.setAttribute('style', 'fill: blue');
+    selectedState = path.getAttribute("data-name");
+  }
+}
 
 
 const ctx = document.getElementById('myChart');
