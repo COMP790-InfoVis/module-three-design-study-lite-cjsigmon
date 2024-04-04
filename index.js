@@ -6,6 +6,12 @@ let topPercent = 100;
 let topPercentElement = document.getElementById("topPercent");
 let countyCountElement = document.getElementById("countyCount");
 let countyCount = data.length;
+let excludeZeros = false;
+let excludeZerosElement = document.getElementById("excludeZeros");
+excludeZerosElement.addEventListener("change", function() {
+  excludeZeros = this.checked;
+  reRender();
+});
 countyCountElement.innerText = countyCount;
 slider.oninput = function() {
   topPercent = 100 - this.value;
@@ -44,6 +50,9 @@ function reRender() {
 
 function renderStateChart() {
   let stateData = data.filter((c) => {
+    if (excludeZeros) {
+      return ((c[selectAttr.value] > 0) && (c.State === selectedState));
+    }
     return c.State === selectedState;
   }).sort((a,b) => {
     return (a[selectAttr.value] / a[denom]) - (b[selectAttr.value] / b[denom]);
@@ -67,6 +76,11 @@ function renderWholeCountry() {
   let sortedCountry = data.sort((a, b) => {
     return (a[selectAttr.value] / a[denom]) - (b[selectAttr.value] / b[denom]);
   });
+  if (excludeZeros) {
+    sortedCountry = sortedCountry.filter((c) => {
+      return c[selectAttr.value] > 0;
+    })
+  }
   countyCount = Math.floor(sortedCountry.length * (topPercent / 100));
   countyCountElement.innerText = countyCount;
   sortedCountry = sortedCountry.slice(-countyCount);
