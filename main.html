@@ -439,6 +439,17 @@ majority native occupying more spots in the higher percentages.</p>
 <p>Now for the full fledged interactive visualization, the data from the
 DOA is recreated as a JSON file and loaded into a chartJS chart whose
 parameters are adjusted by user selections from dropdowns.</p>
+<label for="attr-select">Choose an attribute:</label>
+
+<select name="attributes" id="attr-select">
+  <option value="">--Please choose an option--</option>
+  <option value="Low Access Numbers.People.20 Miles">Percentage People Over 20 Miles from Supermarket</option>
+  <option value="Low Access Numbers.Low Income People.20 Miles">Percentage Low Income People Over 20 Miles from Supermarket</option>
+  <option value="Vehicle Access.20 Miles">Percentage Households Without Vehicle Access Over 20 Miles from Supermarket</option>
+</select>
+<div>
+  <canvas id="myChart"></canvas>
+</div>
 </div>
 <div id="deploy" class="section level3">
 <h3>Deploy</h3>
@@ -515,5 +526,10 @@ $(document).ready(function () {
   })();
 </script>
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="food_access_data.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
